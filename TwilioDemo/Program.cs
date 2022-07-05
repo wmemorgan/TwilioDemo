@@ -14,14 +14,23 @@ class Program
             .AddUserSecrets<Program>();
         var configuration = builder.Build();
 
+        Console.WriteLine("Enter SMS message");
+        string? smsMessage = Console.ReadLine();
+
+        while (string.IsNullOrWhiteSpace(smsMessage))
+        {
+            Console.WriteLine("Missing content. Please enter SMS message.");
+            smsMessage = Console.ReadLine();
+        }
+
         SendSMS(
             configuration.GetSection("TWILIO_ACCOUNT_SID").Value,
             configuration.GetSection("TWILIO_AUTH_TOKEN").Value,
             configuration.GetSection("Phone:From").Value,
             configuration.GetSection("Phone:To").Value,
-            "Hello there!!"
+            smsMessage
             ).Wait();
-        Console.WriteLine("Press any key to continue.");
+
         Console.ReadKey();
     }
 
