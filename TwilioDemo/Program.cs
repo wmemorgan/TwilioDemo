@@ -32,15 +32,6 @@ class Program
             ).Wait();
         Console.WriteLine("Press any key to continue.");
         Console.ReadKey();
-        //TwilioClient.Init(accountSid, authToken);
-
-        //var message = MessageResource.Create(
-        //    body: "This is the ship that made the Kessel Run in fourteen parsecs?",
-        //    from: new PhoneNumber(fromPhone),
-        //    to: new PhoneNumber(toPhone)
-        //);
-
-        //Console.WriteLine(message.Sid);
     }
 
     static async Task SendSMS(
@@ -57,6 +48,15 @@ class Program
         Console.WriteLine($"TO PHONE: {toPhone}");
         Console.WriteLine($"MESSAGE BODY: {messageBody}");
 
+        TwilioClient.Init(accountSid, authToken);
+
+        var message = await MessageResource.CreateAsync(
+            body: messageBody,
+            from: new PhoneNumber(fromPhone),
+            to: new PhoneNumber(toPhone)
+        );
+
+        Console.WriteLine(message.Sid);
     }
 }
 
