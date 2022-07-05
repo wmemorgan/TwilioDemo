@@ -18,12 +18,6 @@ class Program
         Console.WriteLine("Enter SMS message");
         string? smsMessage = Console.ReadLine();
 
-        //while (string.IsNullOrWhiteSpace(smsMessage))
-        //{
-        //    Console.WriteLine("Missing content. Please enter SMS message.");
-        //    smsMessage = Console.ReadLine();
-        //}
-
         SendSMS(
             configuration.GetSection("TWILIO_ACCOUNT_SID").Value,
             configuration.GetSection("TWILIO_AUTH_TOKEN").Value,
