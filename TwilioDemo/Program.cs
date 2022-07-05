@@ -14,15 +14,6 @@ class Program
             .AddUserSecrets<Program>();
         var configuration = builder.Build();
 
-        //var accountSid = configuration.GetSection("TWILIO_ACCOUNT_SID").Value;
-        //var authToken = configuration.GetSection("TWILIO_AUTH_TOKEN").Value;
-        //Console.WriteLine($"TWILIO_ACCOUNT_SID: {accountSid}");
-        //Console.WriteLine($"TWILIO_AUTH_TOKEN: {authToken}");
-
-        //var fromPhone = configuration.GetSection("Phone:From").Value;
-        //var toPhone = configuration.GetSection("Phone:To").Value;
-        //Console.WriteLine($"FROM PHONE: {fromPhone}");
-        //Console.WriteLine($"TO PHONE: {toPhone}");
         SendSMS(
             configuration.GetSection("TWILIO_ACCOUNT_SID").Value,
             configuration.GetSection("TWILIO_AUTH_TOKEN").Value,
