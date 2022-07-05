@@ -2,6 +2,7 @@
 
 using Microsoft.Extensions.Configuration;
 using Twilio;
+using Twilio.Exceptions;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 
@@ -17,11 +18,11 @@ class Program
         Console.WriteLine("Enter SMS message");
         string? smsMessage = Console.ReadLine();
 
-        while (string.IsNullOrWhiteSpace(smsMessage))
-        {
-            Console.WriteLine("Missing content. Please enter SMS message.");
-            smsMessage = Console.ReadLine();
-        }
+        //while (string.IsNullOrWhiteSpace(smsMessage))
+        //{
+        //    Console.WriteLine("Missing content. Please enter SMS message.");
+        //    smsMessage = Console.ReadLine();
+        //}
 
         SendSMS(
             configuration.GetSection("TWILIO_ACCOUNT_SID").Value,
@@ -31,6 +32,7 @@ class Program
             smsMessage
             ).Wait();
 
+        Console.Write("Press any key to continue.");
         Console.ReadKey();
     }
 
@@ -50,13 +52,21 @@ class Program
 
         TwilioClient.Init(accountSid, authToken);
 
-        var message = await MessageResource.CreateAsync(
-            body: messageBody,
-            from: new PhoneNumber(fromPhone),
-            to: new PhoneNumber(toPhone)
-        );
+        try
+        {
+            var message = await MessageResource.CreateAsync(
+                body: messageBody,
+                from: new PhoneNumber(fromPhone),
+                to: new PhoneNumber(toPhone)
+            );
 
-        Console.WriteLine(message.Sid);
+            Console.WriteLine(message.Sid);
+        }
+        catch (ApiException e)
+        {
+            Console.WriteLine(e.Message);
+            Console.WriteLine($"Twilio Error {e.Code} - {e.MoreInfo}");
+        }
     }
 }
 
