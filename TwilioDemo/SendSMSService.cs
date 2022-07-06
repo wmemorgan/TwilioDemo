@@ -1,4 +1,5 @@
-﻿using Twilio.Clients;
+﻿using Twilio;
+using Twilio.Clients;
 using Twilio.Exceptions;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
@@ -7,7 +8,16 @@ namespace TwilioDemo
 {
     public class SendSMSService : ISendSMSService
     {
+        //private string? _accountSid;
+        //private string? _authToken;
         private TwilioRestClient? _client;
+
+
+        //public SendSMSService(string accountSid, string authToken)
+        //{
+        //    _accountSid = accountSid;
+        //    _authToken = authToken;
+        //}
 
         public SendSMSService(TwilioRestClient client)
         {
@@ -16,6 +26,8 @@ namespace TwilioDemo
 
         public async Task<MessageResource> RunSendSMSService(PhoneNumber toPhone, string messagingServiceSid, string? messageBody)
         {
+            //TwilioClient.Init(_accountSid, _authToken);
+
             try
             {
                 var messageResponse = await SendMessageAsync(CreateMessage(toPhone, messagingServiceSid, messageBody), _client);
