@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using Microsoft.Extensions.Configuration;
+using Twilio.Clients;
 
 namespace TwilioDemo
 {
@@ -13,9 +14,15 @@ namespace TwilioDemo
                 .AddUserSecrets<Program>();
             var configuration = builder.Build();
 
-            SendSMSService smsService = new(
+            //SendSMSService smsService = new(
+            //     configuration.GetSection("TWILIO_ACCOUNT_SID").Value,
+            //     configuration.GetSection("TWILIO_AUTH_TOKEN").Value);
+
+            TwilioRestClient client = new(
                  configuration.GetSection("TWILIO_ACCOUNT_SID").Value,
                  configuration.GetSection("TWILIO_AUTH_TOKEN").Value);
+
+            SendSMSService smsService = new(client);
 
             Console.WriteLine("Enter SMS message");
             string? smsMessage = Console.ReadLine();

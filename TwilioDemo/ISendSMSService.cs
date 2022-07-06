@@ -5,6 +5,6 @@ namespace TwilioDemo
 {
     public interface ISendSMSService
     {
-        Task<MessageResource> RunSendSMSService(PhoneNumber toPhone, string messagingServiceSid, string messageBody);
+        Task<MessageResource> RunSendSMSService(PhoneNumber toPhone, string messagingServiceSid, string? messageBody);
     }
 }
