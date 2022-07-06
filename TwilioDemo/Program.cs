@@ -15,8 +15,9 @@ namespace TwilioDemo
             var configuration = builder.Build();
 
             TwilioRestClient client = new(
-                 configuration.GetSection("TWILIO_ACCOUNT_SID").Value,
-                 configuration.GetSection("TWILIO_AUTH_TOKEN").Value);
+                configuration.GetSection("TWILIO_API_KEY").Value,
+                configuration.GetSection("TWILIO_API_SECRET").Value,
+                configuration.GetSection("TWILIO_ACCOUNT_SID").Value);
 
             SendSMSService smsService = new(client);
 
