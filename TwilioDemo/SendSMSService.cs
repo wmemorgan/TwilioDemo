@@ -5,7 +5,7 @@ using Twilio.Types;
 
 namespace TwilioDemo
 {
-    public class SendSMSService
+    public class SendSMSService : ISendSMSService
     {
         private string _accountSid;
         private string _authToken;
@@ -33,7 +33,7 @@ namespace TwilioDemo
                 Console.WriteLine($"Twilio Error {e.Code} - {e.MoreInfo}");
                 throw;
             }
-            
+
         }
 
         protected async Task<MessageResource> SendMessageAsync(CreateMessageOptions messageOptions)
