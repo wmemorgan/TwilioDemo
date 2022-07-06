@@ -3,7 +3,7 @@ using Twilio.Types;
 
 namespace TwilioDemo
 {
-    public interface ISendSmsService1
+    public interface ISendSmsService
     {
         Task<MessageResource> RunSendSMSService(PhoneNumber toPhone, string messagingServiceSid, string? messageBody);
     }
