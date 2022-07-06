@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwilioDemo", "TwilioDemo\TwilioDemo.csproj", "{66C849C8-FC67-40C4-BAD3-50DA6F4B9971}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwilioDemo", "TwilioDemo\TwilioDemo.csproj", "{66C849C8-FC67-40C4-BAD3-50DA6F4B9971}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwilioDemoTests", "TwilioDemoTests\TwilioDemoTests.csproj", "{CAC9A11B-C9E2-4537-84EC-94423DE658FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{66C849C8-FC67-40C4-BAD3-50DA6F4B9971}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66C849C8-FC67-40C4-BAD3-50DA6F4B9971}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66C849C8-FC67-40C4-BAD3-50DA6F4B9971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAC9A11B-C9E2-4537-84EC-94423DE658FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAC9A11B-C9E2-4537-84EC-94423DE658FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAC9A11B-C9E2-4537-84EC-94423DE658FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAC9A11B-C9E2-4537-84EC-94423DE658FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
