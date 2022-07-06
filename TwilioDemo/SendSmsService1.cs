@@ -5,11 +5,11 @@ using Twilio.Types;
 
 namespace TwilioDemo
 {
-    public class SendSMSService : ISendSMSService
+    public class SendSmsService1 : ISendSmsService1
     {
         private TwilioRestClient? _client;
 
-        public SendSMSService(TwilioRestClient client) => _client = client;
+        public SendSmsService1(TwilioRestClient client) => _client = client;
 
         public async Task<MessageResource> RunSendSMSService(PhoneNumber toPhone, string messagingServiceSid, string? messageBody)
         {

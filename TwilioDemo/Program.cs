@@ -19,7 +19,7 @@ namespace TwilioDemo
                 configuration.GetSection("TWILIO_API_SECRET").Value,
                 configuration.GetSection("TWILIO_ACCOUNT_SID").Value);
 
-            SendSMSService smsService = new(client);
+            SendSmsService1 smsService = new(client);
 
             Console.WriteLine("Enter SMS message");
             string? smsMessage = Console.ReadLine();
